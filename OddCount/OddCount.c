@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-2.0
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -7,12 +9,12 @@
 #define MUL		100
 #define DIVMUL		10
 
-unsigned long long oddSum = 0;
+unsigned long long oddSum;
 
 void *oddCount(void *ptr)
 {
 	unsigned long long i = 0;
-	unsigned long long n = *(unsigned long*)ptr;
+	unsigned long long n = *(unsigned long *) ptr;
 	unsigned long long oddCountTmp = 0;
 
 	for (i = 1; i <= n; i++) {
@@ -40,7 +42,7 @@ int main(int argc, char *argv[])
 	unsigned long count7 = DIVMUL*BIL;
 	unsigned long count8 = DIVMUL*BIL;
 	unsigned long count9 = DIVMUL*BIL;
-	
+
 	pthread_t thread0;
 	pthread_t thread1;
 	pthread_t thread2;
@@ -64,16 +66,16 @@ int main(int argc, char *argv[])
 	printf("Multithread:\n");
 	oddSum = 0;
 	timeDiff = time(0);
-	pthread_create(&thread0, NULL, oddCount, (void*) &count0);
-	pthread_create(&thread1, NULL, oddCount, (void*) &count1);
-	pthread_create(&thread2, NULL, oddCount, (void*) &count2);
-	pthread_create(&thread3, NULL, oddCount, (void*) &count3);
-	pthread_create(&thread4, NULL, oddCount, (void*) &count4);
-	pthread_create(&thread5, NULL, oddCount, (void*) &count5);
-	pthread_create(&thread6, NULL, oddCount, (void*) &count6);
-	pthread_create(&thread7, NULL, oddCount, (void*) &count7);
-	pthread_create(&thread8, NULL, oddCount, (void*) &count8);
-	pthread_create(&thread9, NULL, oddCount, (void*) &count9);
+	pthread_create(&thread0, NULL, oddCount, (void *) &count0);
+	pthread_create(&thread1, NULL, oddCount, (void *) &count1);
+	pthread_create(&thread2, NULL, oddCount, (void *) &count2);
+	pthread_create(&thread3, NULL, oddCount, (void *) &count3);
+	pthread_create(&thread4, NULL, oddCount, (void *) &count4);
+	pthread_create(&thread5, NULL, oddCount, (void *) &count5);
+	pthread_create(&thread6, NULL, oddCount, (void *) &count6);
+	pthread_create(&thread7, NULL, oddCount, (void *) &count7);
+	pthread_create(&thread8, NULL, oddCount, (void *) &count8);
+	pthread_create(&thread9, NULL, oddCount, (void *) &count9);
 	pthread_join(thread0, NULL);
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
